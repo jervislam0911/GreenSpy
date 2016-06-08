@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponse
 import sys
 import json
-from Phidgets.PhidgetException import PhidgetException
-from Phidgets.Devices.InterfaceKit import InterfaceKit
+# from Phidgets.PhidgetException import PhidgetException
+# from Phidgets.Devices.InterfaceKit import InterfaceKit
 # Create your views here.
 # is_phidget_connected = False
 # interfaceKit = InterfaceKit()

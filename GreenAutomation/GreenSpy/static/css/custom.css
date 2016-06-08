@@ -3,3 +3,9 @@ h1 {
     font-size:2em;
 
 }
+
+.parallax
+{
+    background: url("bg.jpg");
+
+}
