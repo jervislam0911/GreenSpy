@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Email setting over SMTP
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'djangolivesite@gmail.com'
+EMAIL_HOST_PASSWORD = 'jayjlk333'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Application definition
 
@@ -38,7 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'GreenSpy',
+    'widget_tweaks',
 ]
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,3 +130,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'GreenSpy/static')
+MEDIA_URL = '/photo/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'GreenSpy/photo')

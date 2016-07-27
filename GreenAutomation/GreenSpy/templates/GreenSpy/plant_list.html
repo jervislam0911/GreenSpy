@@ -1,0 +1,38 @@
+{% extends "GreenSpy/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<ul class="bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<section class="live_data">
+    <div class="container">
+        <h1 class="tour-heading" style="color:white;margin-bottom:3em;">List of Your Greenhouse Cultivation</h1>
+        <div class="row">
+        {% for photo in photos %}
+        <div class="col-md-4 photo_img">
+            <a class="thumbnail" href="{% url 'plant_detail' pk=photo.plant.pk %}">
+               <img src='{{photo.image.url}}'/>
+                <div class = "caption">
+                 <p class="info">{{ photo.caption }}</p>
+                </div>
+            </a>
+            <div class="text-center">
+                <h4>{{ photo.plant.name}}</h4>
+            </div>
+
+        </div>
+        {% endfor %}
+        </div>
+        <div class="row" style="margin-top:5em;">
+            <a href="#" id="loadMore">Load More</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -5,7 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <!--https://developers.google.com/speed/libraries/-->
+    <!--google host jquery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap-switch.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/js/unslider-min.js"></script>
+    <script src="{% static 'js/flipclock.min.js' %}"></script>
+    <script src="{% static 'js/circleDonutChart.js' %}"></script>
 	<script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -13,32 +21,88 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
     <script src="{% static 'js/myjs.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/css/unslider.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/unslider/2.0.3/css/unslider-dots.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flipclock.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.icon-large.min.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link href="{% static 'css/bootstrap-switch.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/railscasts.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+
 </head>
 <body>
-<h1>Space 1</h1>
-<section class="parallax">
-    <div class="parallax-inner">
-        <h1>Space 2</h1>
+<div class="nav-placeholder">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'main_page' %}" style="color:white;">Green Spy</a>
+            <button type="button" class="navbar-toggle collapsed bgh" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'main_page' %}" class="text-center">Home</a></li>
+            <li><a href="{% url 'plant_list' %}" class="text-center">Plants</a></li>
+            <li><a href="#" class="text-center">Live Data</a></li>
+            <li><a href="{% url 'contact' %}" class="text-center">Contact</a></li>
+            <li><a style="color:white" class="text-center">Welcome back, {{ user.username }}.</a></li>
+            <li><a href="{% url 'logout' %}" class="text-center">Log out</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}" class="text-center">Sign up</a></li>
+            <li><a href="{% url 'login' %}" class="text-center">Log in</a></li>
+           </ul>
+            {% endif %}
+        </div>
+      </div>
+    </nav>
+</div>
 
+{% block content %}
+{% endblock %}
+
+<!--footer-->
+<footer>
+    <div class="col-md-12">
+        <address class="site-info">
+          <h2>Like What You See Here?</h2>
+          <p>Let us know if you need any helps on your cultivation.</p>
+          <p>We will provide the best solutions and lower your potential cost.</p>  <br>
+          <p></p><strong>Wentworth Institute of Technology   |   550 Huntington Avenue   |   Boston, MA 02115   |   617-989-4590</strong></p><br>
+          <div class="col-md-3 col-md-offset-3">
+              <p><strong>Weijie Lin</strong><br>
+              <a href="mailto:#">linw3@wit.edu</a></p><br>
+          </div>
+          <div class="col-md-3">
+              <p><strong>Yiqin Yin</strong><br>
+              <a href="mailto:#">yiny1@wit.edu</a></p>
+          </div>
+        </address>
+    </div>
+     <div class="col-md-6 col-md-offset-3">
+          <i class="fa fa-facebook" style="color:white;"></i>
+         <i class="fa fa-linkedin" style="color:white;"></i>
+         <i class="fa fa-github" style="color:white;"></i>
+     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="site-info" style="padding-top:1em;">© Copyright 2016 GreenSpy</p>
+        </div>
     </div>
 
 
-</section>
 
-<h1>Space 3</h1>
-<!--<h1>Light Sensor Test</h1>-->
-
-<!--<div id="content"></div>-->
-
+</footer>
 
 </body>
 

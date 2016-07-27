@@ -1,0 +1,164 @@
+{% extends "GreenSpy/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<section class="parallax">
+    <div class="parallax-inner">
+        <div class="Logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo" class="img_logo" id="logo_pic"/>
+            <strong id="title">Green Spy</strong>
+            <small id="small_title">Green House Automation System</small>
+        </div>
+        <div id="downArrow">
+            <div class="arrow bounce">
+                <a class="fa fa-angle-down fa-4x" href="#" id="arrowdown"></a>
+            </div>
+            <div class="text-center" id="aboutUs">Know About Us</div>
+        </div>
+    </div>
+    {% block authentication %}
+    {% endblock %}
+</section>
+<hr>
+<section id="heading">
+    <p class="tour-heading">Energy Efficiency and Greenhouse Automation</p>
+    <p class="tour-subheading">By empowered from Internet of Things platform, your greenhouse environment will be perfectly balanced by our automation controlling system with minimum costs.</p>
+</section>
+<div class="row">
+    <div class="container">
+        <div class="col-md-6">
+             <img src="{% static 'img/index_pic.jpg' %} " class="img-responsive" alt="Cinque Terre">
+        </div>
+        <div class="col-md-6">
+                 <h3 style="color:#219CDE;">Always <small>keep tracking of your environment</small></h3>
+                 <p> Our monitoring control system provides great impact on greenhouse cultivation. The system works on any big farming purpose greenhouses, and also the small personal plant cultivation. The program will keep tracking the conditions of the greenhouse and transmit the current data to the central website. The owner will be able to monitor the status of the crops and plants to make the necessary changes if they are needed.
+                 </p>
+        </div>
+    </div>
+</div>
+
+</br>
+<div class="container">
+<div class="my-slider">
+	<ul>
+		<li>
+            <div class="row">
+            <div class="container ">
+                <div class="col-md-6">
+                    <h3 style="color:#2e6a3c;">Fully <small>automatic logistical systems with lower cost</small></h3>
+                    <p> Our system can save greenhouse growers at least 50% efforts on human resources investment. Automation is the perfect option for growers
+                        who want to increase productivity and minimize the expenses. We dedicate our technology to help growers on their time and money, also to
+                        improve their root health and crop yields.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <div id="example1"></div>
+                </div>
+                <div class="col-md-3">
+                    <div id="example2"></div>
+                </div>
+
+            </div>
+            </div>
+        </li>
+		<li>
+
+            <div class="container">
+                <div class="col-md-6">
+                    <h3 style="color:#800AD5;">Automatically <small>update real time sensing data</small></h3>
+                    <p> The aim of this system is to provide real time monitoring and controlling capabilities for various green house
+                        parameters such as temperature, humidity and light intensity using very accurate and sophisticated sensors. All the parameters will be display on the user
+                        web interface with close to real time update.
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                        <div class="clock"></div>
+
+                     <!--<img src="{% static 'img/EnergyEfficiency.jpg' %} " class="img-responsive" alt="Cinque Terre">-->
+
+                </div>
+
+            </div>
+
+        </li>
+
+	</ul>
+</div>
+</div>
+<!--<h1 style="height:10em;">Space 3</h1>-->
+<!--<h1>Light Sensor Test</h1>-->
+
+<!--<div id="content"></div>-->
+
+
+<hr>
+<section class="parallax-two">
+    <div class="parallax-inner">
+        <div class = "secondBanner">
+            <h1 class ="text-center" >Tech Sensing</h1><hr class="m-y-3">
+            <h5 class="text-center">Centralize multiple accurate sensors are</h5>
+            <h5 class="text-center">Operates virtually any devices by using our responsive web interface</h5>
+        </div>
+    </div>
+</section>
+
+<hr>
+<div class="container">
+
+        <p class="tour-heading">Monitor and Control Everything in Your Greenhouse</p>
+        <p class="tour-subheading">Tracking, reviewing, and reporting the progress to meet the high quality of your breeding. Also effectively controls the production period and ensure the revenue.</p>
+
+    <div class="row">
+         <div class="col-sm-6 col-md-3">
+                <a class="thumbnail">
+                    <img src="{% static 'img/temperature.jpg' %}" alt="Temperature Sensor">
+                </a>
+             <div class="caption text-center">
+                <h3>Temperature Sensor</h3>
+                <p class="text-center">Measures Ambient Temperature in the range of -30°C to +80° C with a typical error of ±0.75°C in the 0°C to 80°C range.</p>
+             </div>
+         </div>
+         <div class="col-sm-6 col-md-3">
+                <a class="thumbnail">
+                    <img src="{% static 'img/light.jpg' %}" alt="Light Sensor">
+                </a>
+             <div class="caption text-center">
+                 <h3 class="text-center">Light Sensor</h3>
+                 <p class="text-center">The 1142 Light sensor can measure ambient light up to 1000 lux. Roughly equivalent to the sky on an overcast day</p>
+             </div>
+         </div>
+
+         <div class="col-sm-6 col-md-3">
+                <a class="thumbnail">
+                    <img src="{% static 'img/humidity.png' %}" alt="Humidity Sensor">
+                </a>
+             <div class="caption text-center">
+                <h3 class="text-center">Humidity Sensor</h3>
+                <p class="text-center">Measures Relative Humidity from 10% to 95% with a typical error of ±2%RH at 55% RH and fast response</p>
+             </div>
+         </div>
+
+         <div class="col-sm-6 col-md-3">
+                 <a class="thumbnail">
+                     <img src="{% static 'img/powerswitch.png' %}" alt="Power Switch">
+                 </a>
+
+             <div class="caption text-center">
+                 <h3 class="text-center">Power Switch</h3>
+                 <p class="text-center">The Dual Relay Board allows you to control larger loads and devices like electromagnets and solenoids.</p>
+             </div>
+         </div>
+
+    </div>
+
+</div>
+<hr>
+
+
+
+
+<!--<h1 style="height:10em;">Space 3</h1>-->
+<!--<h1>Light Sensor Test</h1>-->
+
+
+{% endblock %}

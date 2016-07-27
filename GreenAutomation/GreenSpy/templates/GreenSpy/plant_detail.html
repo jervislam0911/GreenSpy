@@ -1,0 +1,75 @@
+{% extends "GreenSpy/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<ul class="bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<section class="live_data">
+    <div class="container">
+      <h1 class="tour-heading" style="color:white">Detail of Your Greenhouse Cultivation</h1>
+      <div class="post_detail_wrapper">
+            <div class = "row" >
+                <div class = "col-md-3 thumbnail">
+                    <img src='{{plant_detail.photo_set.first.image.url}}' />
+                </div>
+                <div class = "col-md-9">
+                    <div class="col-md-5 text-left">
+                       <h2>{{ plant_detail.name }}</h2>
+                    </div>
+                    {% if plant_detail.publish_date %}
+                    <div class="col-md-5 pull-right" style="padding-top:2.4em;">
+                        <div>This post published on {{ plant_detail.publish_date }}</div>
+                    </div>
+                    {% endif %}
+                    <div class="col-md-12">
+                    <p class="text-justify ">{{plant_detail.description}}</p>
+                    </div>
+                </div>
+
+            </div>
+      </div>
+      <div class="row hidden">
+      <div class="temperature">{{plant_detail.temperature}}</div>
+      <div class="light">{{plant_detail.light_intensity}}</div>
+      <div class="humidity">{{plant_detail.humidity}}</div>
+      </div>
+      <div class="row">
+          <div class="col-md-6 col-md-offset-1">
+            <canvas id="myChart"  style="white;"></canvas>
+          </div>
+          <div class="col-md-4 col-md-offset-1">
+              <div class="col-md-12" style="padding:1em;">
+                  <div id="fan" class="col-md-1"><img src="{% static 'img/fan_stop.png' %}" alt="Fan Control"></div>
+                  <div class="col-md-2 col-md-offset-2" style="margin-top:1em;"> <input type="checkbox" name="temp-checkbox" checked ></div>
+              </div>
+
+              <div class="col-md-12" style="padding:1em;">
+                  <div id="light" class="col-md-1"><img src="{% static 'img/light_off.png' %}" alt="Light Control"></div>
+                  <div class="col-md-2 col-md-offset-2" style="margin-top:1em;"> <input type="checkbox" name="light-checkbox" checked ></div>
+              </div>
+
+              <div class="col-md-12" style="padding:1em;">
+                  <div id="humidity" class="col-md-1"><img src="{% static 'img/humidity_low.png' %}" alt="Humidity Control"></div>
+                  <div class="col-md-2 col-md-offset-2" style="margin-top:1em;"> <input type="checkbox" name="humi-checkbox" checked ></div>
+              </div>
+          </div>
+      </div>
+      {% if plant_detail_prev.pk %}
+      <div class="col-md-6" style="margin-top:3em;"><a href="{% url 'plant_detail' pk=plant_detail_prev.pk %}" id="prev">Prev</a></div>
+      {% endif %}
+      {% if plant_detail_next.pk %}
+      <div class="col-md-6" style="margin-top:3em;"><a href="{% url 'plant_detail' pk=plant_detail_next.pk %}" id="next">Next</a></div>
+      {% endif %}
+      <div id="content"></div>
+
+    </div>
+
+</section>
+
+{% endblock %}
